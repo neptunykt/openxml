@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <IsPackable>false</IsPackable>
+        <LangVersion>7.1</LangVersion>
+        <CodeAnalysisRuleSet>.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
+        <PackageReference Include="coverlet.msbuild" Version="2.9.0">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="xunit" Version="2.4.1" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.4.2">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="xunit.runner.console" Version="2.4.1" />
+        <PackageReference Include="xunit.runner.reporters" Version="2.4.1" />
+        <PackageReference Include="Moq" Version="4.16.0" />
+        <PackageReference Include="AutoFixture" Version="4.13.0" />
+        <PackageReference Include="AutoFixture.Xunit2" Version="4.13.0" />
+    </ItemGroup>
+    <ItemGroup>
+        <DotNetCliToolReference Include="dotnet-reportgenerator-cli" Version="4.0.4" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\OpenXmlClient\OpenXmlClient.csproj" />
+      <ProjectReference Include="..\OpenXmlServer\OpenXmlServer.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="TestWinWord\*.*">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <Content Update="TestWinWord\FillTableTest.docx">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <Content Update="TestWinWord\test_open_xml.docx">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+</Project>
